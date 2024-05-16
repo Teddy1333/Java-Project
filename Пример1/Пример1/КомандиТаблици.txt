@@ -1,0 +1,7 @@
+Команди за създаване на таблиците
+CREATE TABLE prtable (id IDENTITY PRIMARY KEY, proizvoditel VARCHAR(50))
+CREATE TABLE mtable (id IDENTITY PRIMARY KEY, mashtab VARCHAR(50))
+CREATE TABLE arttable (id IDENTITY PRIMARY KEY, name VARCHAR(50), idproizvoditel int REFERENCES prtable(id), idmashtab int REFERENCES mtable(id),opis VARCHAR(100), kol int, cena decimal (6,2), datein date, year int)
+
+Забележка: Ако при създаването на базата Ви даде грешка на последното поле year от последната таблица, го преименувайте. След това заменете с избраното от Вас име всички year в SQL операторите,
+участващи в кода на carsFrame, за да съответстват на промяната. Проблемът се дължи на това, че в новите версии на h2, year е станала служебна дума. Примерът е правен с по-стара нейна версия.
